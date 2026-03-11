@@ -84,7 +84,7 @@ and posts updates like:
 
 > Image compression in progress: 23/47 files completed (~48%).
 
-### Characteristics
+### Characteristics (direct background process)
 
 - **Implementation complexity:** low (simple script + polling).
 - **Typical duration:** \< 10 minutes.
@@ -136,7 +136,7 @@ The script might emit a JSON status file like:
 The cron job uses the Gateway scheduler (see [/automation/cron-jobs](/automation/cron-jobs)) and runs with
 `sessionTarget: "main"` or `sessionTarget: "isolated"` depending on how you want updates delivered.
 
-### Characteristics
+### Characteristics (status file + cron)
 
 - **Implementation complexity:** medium (script + status file + cron config).
 - **Typical duration:** 10 minutes to several hours.
@@ -203,7 +203,7 @@ The front agent:
 - surfaces the question to the user,
 - writes the chosen option back into a "decision" field that the worker reads.
 
-### Characteristics
+### Characteristics (multi-agent coordination)
 
 - **Implementation complexity:** higher (two agents or roles + richer status protocol).
 - **Typical duration:** tens of minutes to hours.
@@ -252,7 +252,7 @@ The cron job:
 - sends nothing when all `days_left` values are healthy,
 - sends a **warning** or **urgent** message when any domain is close to expiry.
 
-### Characteristics
+### Characteristics (cron sentinel)
 
 - **Implementation complexity:** low (script + cron entry).
 - **Execution frequency:** minutes to days.
