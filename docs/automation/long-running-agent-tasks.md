@@ -136,7 +136,7 @@ The script might emit a JSON status file like:
 The cron job uses the Gateway scheduler (see [/automation/cron-jobs](/automation/cron-jobs)) and runs with
 `sessionTarget: "main"` or `sessionTarget: "isolated"` depending on how you want updates delivered.
 
-### Characteristics (status file + cron)
+### Characteristics
 
 - **Implementation complexity:** medium (script + status file + cron config).
 - **Typical duration:** 10 minutes to several hours.
